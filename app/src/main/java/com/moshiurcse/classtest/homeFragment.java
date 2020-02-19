@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.moshiurcse.classtest.shape_file_json.GeoJsonData;
 import com.moshiurcse.classtest.shape_file_json.GeoJsonDataAdaptor;
@@ -52,13 +53,24 @@ public class homeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         recyclerView=view.findViewById(R.id.dataRV);
+
+        String startDate=getArguments().getString("startDt");;
+        String endDate=getArguments().getString("endDt");;
+
+        Toast.makeText(getActivity(), "Show data from "+startDate+ " to "+endDate, Toast.LENGTH_SHORT).show();
+
+/*        String endUrl = String.format("forecast/daily?lat=%f&lon=%f&cnt=16&units=%s&appid=%s",
+                location.getLatitude(), location.getLongitude(), units, apiKey);*/
+
+        String endUrl = String.format("query?format=geojson&starttime=%s&endtime=%s&minmagnitude=5", startDate, endDate);
+
+
 
         final Retrofit retrofit=new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
         final ServiceApi serviceApi=retrofit.create(ServiceApi.class);
 
-        serviceApi.getAllData().enqueue(new Callback<GeoJsonData>() {
+        serviceApi.getAllData(endUrl).enqueue(new Callback<GeoJsonData>() {
             @Override
             public void onResponse(Call<GeoJsonData> call, Response<GeoJsonData> response) {
 

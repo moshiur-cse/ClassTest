@@ -3,11 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/getDateFragment">
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.moshiurcse.classtest.homeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/getDateFragment"
+        android:name="com.moshiurcse.classtest.GetDateFragment"
+        android:label="fragment_get_date"
+        tools:layout="@layout/fragment_get_date" >
+        <action
+            android:id="@+id/action_getDateFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

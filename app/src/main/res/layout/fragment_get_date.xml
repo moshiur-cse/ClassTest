@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GetDateFragment">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:id="@+id/startDateET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2020-02-01" />
+
+    <EditText
+        android:id="@+id/endDateET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2020-02-05" />
+<Button
+    android:id="@+id/getDateBtn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Get Earthquake Data"/>
+</LinearLayout>
+</FrameLayout>

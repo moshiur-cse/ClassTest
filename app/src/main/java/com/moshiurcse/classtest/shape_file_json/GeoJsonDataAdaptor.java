@@ -47,7 +47,7 @@ public class GeoJsonDataAdaptor extends RecyclerView.Adapter<GeoJsonDataAdaptor.
 
     @Override
     public int getItemCount() {
-        return 1;
+        return dataList.getFeatures().size();
     }
 
     class GeoJsonDataViewHolder extends RecyclerView.ViewHolder {
@@ -55,7 +55,6 @@ public class GeoJsonDataAdaptor extends RecyclerView.Adapter<GeoJsonDataAdaptor.
         TextView magTV,placeTV;
         public GeoJsonDataViewHolder(@NonNull View itemView) {
             super(itemView);
-
 
             magTV=itemView.findViewById(R.id.row_mag_id);
             placeTV=itemView.findViewById(R.id.row_place_id);
